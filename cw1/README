@@ -1,0 +1,75 @@
+========================================================================
+Autor: Stanisław Mnich,                               Krakow, 21.03.2022
+========================================================================
+
+* Zawartosc:
+============
+
+Katalog cw1 zawiera piec programow napisanych w jezyku C:
+--------------------------------------------------------------------
+
+I.	Program wypisuje za pomoca funkcji printf UID, GID, PID, PPID i PGID.
+	Program sklada sie z jednego modulu: 
+	1) 1.c  - program glowny. 
+
+II.	Program wywołuje funkcję fork trzy razy i wypisuje identyfikatory z programu pierwszego.
+	Za pomocą funkcji wait proces macierzysty czeka na zakończenie wszystkich procesów.
+	Program sklada sie z jednego modulu: 
+	1) 2.c  - program glowny.
+
+III.	Program wywołuje funkcję fork trzy razy i wypisuje identyfikatory z programu pierwszego.
+	Za pomocą funkcji sleep proces macierzysty ma czas sie skonczyc.
+	Procesy potomne sa wypisywane po zakonczeniu programu. Sa adaptowane przez systemd.
+	Program sklada sie z jednego modulu: 
+	1) 3.c  - program glowny.
+
+IV.	Program wywołuje funkcję fork trzy razy i wypisuje identyfikatory z programu pierwszego.
+	Za pomocą funkcji sleep procesy wyświetlają się na ekranie od najstarszego do najnowszego.
+	Program sklada sie z jednego modulu: 
+	1) 4.c  - program glowny.
+
+V. 	Program wywołuje funkcję fork trzy razy i wypisuje identyfikatory z programu pierwszego.
+	Za pomocą funkcji wait proces macierzysty czeka na zakończenie wszystkich procesów.
+	Za pomocą funkcji setpgid(0,0) adres PID jest kopiowany jako PGID.
+	Program sklada sie z jednego modulu: 
+	1) 5.c  - program glowny.
+	
+VI.	Program jak III tylko z użyciem funkcji execlp.
+	1) 6.c - program glowny.
+
+------------------------------------------------------------------------
+
+* Jak uruchomic programy:
+=========================
+
+Katalog zawiera program Makefile do kompilacji i uruchamiania powyzszych programow, a takze czyszczenia katalogu 
+i jego archiwizacji.
+
+-> Aby uruchomic 1. program, nalezy wykonac komende:
+       make run1
+       
+-> Aby uruchomic 2. program, nalezy wykonac komende:
+       make run2
+
+-> Aby uruchomic 3. program, nalezy wykonac komende:
+       make run3
+       
+-> Aby uruchomic 4. program, nalezy wykonac komende:
+       make run4
+       
+-> Aby uruchomic 5. program, nalezy wykonac komende:
+       make run5
+
+-> Aby uruchomic 6. program, nalezy wykonac komende:
+       make run6
+
+-> Aby wyczyscic zawartosc katalogu (usunac zbedne pliki), nalezy wykonac:
+       make clean
+
+-> W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+       make tar
+
+========================================================================
+
+
+
