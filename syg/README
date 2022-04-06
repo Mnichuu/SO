@@ -1,0 +1,53 @@
+========================================================================
+Autor: Stanisław Mnich,                               Krakow, 5.04.2022
+========================================================================
+
+* Zawartosc:
+============
+
+Katalog syg zawiera trzy programy napisane w jezyku C:
+--------------------------------------------------------------------
+
+I.	Program obsluguje sygnaly z mozliwoscia:
+	1. wykonania operacji domyslnej
+	2. ignorowania
+	3. przechwycenia i wlasnej obslugi sygnalu.
+	Program sklada sie z jednego modulu: 
+	1) 1.c  - program glowny. 
+
+II.	Program uruchamia program 1.c poprzez uzycie funkcji execlp i wysyla sygnaly za pomoca 		fukcji kill.
+	Program sklada sie z jednego modulu: 
+	1) 2.c  - program glowny.
+
+III.	Program tworzy proces potomny i sprawia go liderem swoijej grupy procesow, sprawdza ich 		istnienie. Wysyla funkcje kill do wszystkich procesow podgrupy. Dzieki funkcji wait czeka 		na zakonczenie wszystkich procesow potomnych.
+	Program sklada sie z dwoch modulow: 
+	1) 3.c  - program glowny.
+	2) 3a.c - program pomocniczy
+
+------------------------------------------------------------------------
+
+* Jak uruchomic programy:
+=========================
+
+Katalog zawiera program Makefile do kompilacji i uruchamiania powyzszych programow, a takze czyszczenia katalogu 
+i jego archiwizacji.
+
+-> Aby uruchomic 1. program, nalezy wykonac komende:
+       make run1 OP=(d,i,p) NR=(numer sygnalu)
+       
+-> Aby uruchomic 2. program, nalezy wykonac komende:
+       make run2 OP=(d,i,p) NR=(numer sygnalu)
+
+-> Aby uruchomic 3. program, nalezy wykonac komende:
+       make run3 OP=(d,i,p) NR=(numer sygnalu)
+
+-> Aby wyczyscic zawartosc katalogu (usunac zbedne pliki), nalezy wykonac:
+       make clean
+
+-> W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+       make tar
+
+========================================================================
+
+
+
