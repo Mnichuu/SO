@@ -1,0 +1,40 @@
+========================================================================
+Autor: Stanisław Mnich,                               Krakow, 30.05.2022
+========================================================================
+
+* Zawartosc:
+============
+
+Katalog syg zawiera trzy programy napisane w jezyku C:
+--------------------------------------------------------------------
+
+I.	Program, ktory przy pomocy semaforow nazwanych implementuje zadanie wzajemnego wykluczania
+	dla procesów (podane w pseudokodzie na koncu dzialu 5.1).
+	Program sklada sie z trzech modulow: 
+	1) powielacz.c
+	2) sumator.c
+	3) semafor.c
+	4) semafor.h
+	-oraz pliku tekstowego numer.txt
+
+------------------------------------------------------------------------
+
+* Jak uruchomic programy:
+=========================
+
+Katalog zawiera program Makefile do kompilacji i uruchamiania powyzszych programow, a takze czyszczenia katalogu 
+i jego archiwizacji.
+
+-> Aby uruchomic program, nalezy wykonac komende:
+       make run
+       
+-> Aby wyczyscic zawartosc katalogu (usunac zbedne pliki), nalezy wykonac:
+       make clean
+
+-> W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+       make tar
+
+========================================================================
+
+
+
